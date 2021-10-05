@@ -10,6 +10,7 @@ import CopyAction from './ContextMenuActions/CopyAction.jsx';
 import EditAction from './ContextMenuActions/EditAction.jsx';
 import RenameAction from './ContextMenuActions/RenameAction.jsx';
 import DownloadAction from './ContextMenuActions/DownloadAction.jsx';
+import OpenUrlAction from './ContextMenuActions/OpenUrlAction.jsx';
 
 class ContextMenu extends Component {
 
@@ -19,6 +20,9 @@ class ContextMenu extends Component {
             let component;
             if (act === 'open') {
                 component = <OpenAction key={key} />;
+            }
+            if (act === 'open URL'){
+                component = <OpenUrlAction key={key} />;
             }
             if (act === 'edit') {
                 component = <EditAction key={key} />;

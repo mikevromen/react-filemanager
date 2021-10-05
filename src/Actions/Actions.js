@@ -507,3 +507,10 @@ export const setFileUploadList = (files) => {
         value: files
     };
 };
+
+export const setVisibleDialogOpenUrl = (visible) => {
+    return {
+        type: 'SET_VISIBLE_DIALOG_OPENURL',
+        value: !!visible
+    };
+};

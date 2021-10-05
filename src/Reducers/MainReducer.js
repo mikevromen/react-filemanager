@@ -19,6 +19,7 @@ export const defaultState = {
     visibleDialogMove: false,
     visibleDialogCopy: false,
     visibleDialogRename: false,
+    visableDialogOpenUrl: false,
     fileContentBlobUrl: null,
     fileUploadProgress: 0,
     fileUploadList: []
@@ -117,6 +118,11 @@ const MainReducer = (state = defaultState, action) => {
         case 'SET_VISIBLE_DIALOG_CONTENT':
             return Object.assign({}, state, { 
                 visibleDialogContent: !!action.value
+            });
+
+        case 'SET_VISIBLE_DIALOG_OPENURL':
+            return Object.assign({}, state, {
+                visableDialogOpenUrl: !!action.value
             });
 
         case 'SET_VISIBLE_DIALOG_EDIT':

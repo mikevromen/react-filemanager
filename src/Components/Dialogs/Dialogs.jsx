@@ -6,11 +6,13 @@ import DialogRename from './Rename/Rename.jsx';
 import DialogMove from './Move/Move.jsx';
 import DialogCopy from './Copy/Copy.jsx';
 import DialogUploadFile from './UploadFile/UploadFile.jsx';
+import DialogOpenUrl from './OpenUrl/OpenUrl.jsx';
 
 function Dialogs(props) {
     return (
         <div className="Dialogs">
             <DialogContent />
+            <DialogOpenUrl />
             <DialogEdit />
             <DialogCreateFolder />
             <DialogMove />
