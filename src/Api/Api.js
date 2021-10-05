@@ -66,6 +66,7 @@ export function remove(path, filenames, recursive = true) {
  * @returns {Object}
  */
 export function move(path, destination, filenames) {
+    console.log(`path: ${path} -- destination: ${destination} -- filenames: ${filenames}`);
     return fetch(config.url_move, {
         method: 'POST',
         headers: {
@@ -121,18 +122,17 @@ export function copy(path, destination, filenames) {
  * @param {Object<FileList>} fileList
  * @returns {Object}
  */
-export function upload(path, fileList, formData = new FormData()) {
-    [...fileList].forEach(f => {
-        formData.append('file[]', f);
-    });
-    formData.append('path', path);
-
+export function upload(path, fileList) {
+    let formData = new FormData();
+    formData.append("name", "imageUpload");
+    for (let i = 0; i < fileList.length; i++) {
+        console.log(fileList[i]);
+        console.log(fileList[i].name);
+        formData.append('photo', fileList[i], fileList[i].name);
+    }
+    console.log(config.url_upload);
     return fetch(config.url_upload, {
-        method: 'POST',
-        body: formData, 
-        headers: {
-            // a workaround for node connector, passing the path by header
-            path: path
-        }
+        method: "POST",
+        body: formData
     });
 };
